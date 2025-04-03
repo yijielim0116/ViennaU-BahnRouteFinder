@@ -1,0 +1,3 @@
+JMH S 23 org.example.MyBenchmark S 58 org.example.jmh_generated.MyBenchmark_benchmarkBFS_jmhTest S 12 benchmarkBFS S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 12 MILLISECONDS E E 
+JMH S 23 org.example.MyBenchmark S 66 org.example.jmh_generated.MyBenchmark_benchmarkBFSDistance_jmhTest S 20 benchmarkBFSDistance S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 12 MILLISECONDS E E 
+JMH S 23 org.example.MyBenchmark S 63 org.example.jmh_generated.MyBenchmark_benchmarkBFSStops_jmhTest S 17 benchmarkBFSStops S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 12 MILLISECONDS E E 

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:controller="org.example.javafx.Controller.RouteFinderController"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            prefWidth="1200" prefHeight="800">
+
+    <!-- LEFT: Controls and Outputs -->
+    <left>
+        <VBox spacing="12" alignment="TOP_CENTER" prefWidth="250">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="🔍 Algorithms" underline="true">
+                <font><Font name="System Bold" size="20"/></font>
+            </Label>
+
+            <Button fx:id="bfsButton" text="Breadth First Search" onAction="#bfsSearch" maxWidth="200"/>
+            <Button fx:id="dijkstraButton" text="Dijkstra" onAction="#dijkstraSearch" maxWidth="200"/>
+            <Button fx:id="penaltyButton" text="Dijkstra + Penalty" onAction="#dijkstraWithPenaltySearch" maxWidth="200"/>
+            <Button fx:id="dfsButton" text="Depth First Search" onAction="#dfsSearch" maxWidth="200"/>
+            <Button fx:id="allDfsButton" text="All Depth First" onAction="#dfsAllSearch" maxWidth="200"/>
+
+            <Label text="📍 Route Output">
+                <font><Font size="16"/></font>
+            </Label>
+            <ListView fx:id="routeOutput" prefHeight="150" prefWidth="200"/>
+
+            <Label text="🧭 All DFS Paths">
+                <font><Font size="16"/></font>
+            </Label>
+            <ListView fx:id="dfsAllListView" prefHeight="150" prefWidth="200"/>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="populateMapButton" text="🗺 Populate" onAction="#populateMap" />
+                <Button fx:id="clearMap" text="🧹 Clear" onAction="#clearMap"/>
+            </HBox>
+
+            <Button fx:id="exitApp" text="❌ Exit" onAction="#closeApplication" maxWidth="200"/>
+        </VBox>
+    </left>
+
+    <!-- CENTER: Map View -->
+    <center>
+        <VBox alignment="TOP_CENTER">
+            <ImageView fx:id="mapImage" fitWidth="850" fitHeight="500" preserveRatio="true"/>
+            <HBox spacing="40" alignment="CENTER">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <!-- Waypoint Section -->
+                <VBox alignment="TOP_CENTER" spacing="5">
+                    <Label text="🚉 Waypoint" underline="true">
+                        <font><Font name="System Bold" size="16"/></font>
+                    </Label>
+                    <MenuButton fx:id="waypointStation" text="Select Station"/>
+
+                    <!-- Centered HBox for buttons -->
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Add" onAction="#addWaypoint"/>
+                        <Button text="Remove" onAction="#removeWaypoint"/>
+                    </HBox>
+
+                    <ListView fx:id="waypointView" prefHeight="100" prefWidth="150"/>
+                </VBox>
+
+                <!-- Avoid Section -->
+                <VBox alignment="TOP_CENTER" spacing="5">
+                    <Label text="🚫 Avoid" underline="true">
+                        <font><Font name="System Bold" size="16"/></font>
+                    </Label>
+                    <MenuButton fx:id="avoidStation" text="Select Station"/>
+
+                    <!-- Centered HBox for buttons -->
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Add" onAction="#addAvoid"/>
+                        <Button text="Remove" onAction="#removeAvoid"/>
+                    </HBox>
+
+                    <ListView fx:id="avoidView" prefHeight="100" prefWidth="150"/>
+                </VBox>
+
+                <!-- Start/End Section -->
+                <VBox alignment="TOP_CENTER">
+                    <Label text="🚉 Station Selection" underline="true">
+                        <font><Font name="System Bold" size="16"/></font>
+                    </Label>
+                    <HBox spacing="10">
+                        <VBox>
+                            <Label text="Start"/>
+                            <MenuButton fx:id="startStation" text="Starting Station"/>
+                        </VBox>
+                        <VBox>
+                            <Label text="End"/>
+                            <MenuButton fx:id="endStation" text="End Station"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
